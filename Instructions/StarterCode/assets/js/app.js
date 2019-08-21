@@ -4,9 +4,9 @@ var svgHeight = 500;
 
 // Define the chart's margins as an object 
 var margin = {
-    top: 60,
+    top: 80,
     right: 60,
-    bottom: 60,
+    bottom: 80,
     left: 60
 };
 
@@ -25,14 +25,14 @@ var chartGroup = svg.append("g")
 .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Initial Params
-var chonsenXAxis = "poverty";
+var chosenXAxis = "poverty";
 
 // function used for updating x-scale var upon click on axis label
-function xScale(journalData, chonsenXAxis){
+function xScale(journalData, chosenXAxis){
     //creating scales
     var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(journalData, d => d[chosenXaxis])* 0.8,
-            d3.max(journalData, d => d[chosenXaxis]) * 1.2
+        .domain([d3.min(journalData, d => d[chosenXAxis])* 0.8,
+            d3.max(journalData, d => d[chosenXAxis]) * 1.2
         ])
         .range([0, width]);
     return xLinearScale;
@@ -41,6 +41,7 @@ function xScale(journalData, chonsenXAxis){
 //function used for updating xAxis var upon click on axis label
 function renderAxes(newXScale, xAxis){
     var bottomAxis = d3.axisBottom(newXScale);
+    
 
     xAxis.transition()
         .duration(1000)
@@ -49,63 +50,59 @@ function renderAxes(newXScale, xAxis){
 }
 
 //function used for updating circles group with a transition to new circles
-function renderCircles(circlesGroup, newXScale, chonsenXAxis){
+function renderCircles(circlesGroup, newXScale, chosenXAxis){
     
     circlesGroup.transition()
         .duration(1000)
-        .attr("cx", d => newXScale(d[chosenXaxis]));
+        .attr("cx", d => newXScale(d[chosenXAxis]));
     return circlesGroup
 }
 
 //function used for updating cicles group with new tooltip
-function updateToolTip(chosenXaxis, circlesGroup){
+function updateToolTip(chosenXAxis, circlesGroup) {
 
-    if (chosenXaxis === "poverty"){
+    if (chosenXAxis === "poverty") {
         var label = "In Poverty (%)";
     }
-    else{ 
+    else { 
         var label = 'Age (Median)'; 
     }
 
 
     var toolTip = d3.tip()
         .attr("class", "tooltip")
+        .style("border", "solid")
+        .style("background-color", "gray")
         .offset([80, -60])
-        .html(function(d){
-            return(`${d.state}<br>${label}<br>${chosenXaxis}`);
+        .html(function(d) {
+            return(`${d.state}<br>${label}<br>${d[chosenXAxis]}`);
         });
     
     circlesGroup.call(toolTip);
 
-    circlesGroup.on("mouseover", function(data){
-        toolTip.show(data);
-    })
+    circlesGroup.on("mouseover", function(data) {
+        toolTip.show(data, this);
+      })
 
         //onmouseout event
         .on("mouseout", function(data, index) {
-            toolTip.hide(data);
+            toolTip.hide(data, this);
         });
 
 
 
-    return circlesGroup
+    return circlesGroup;
 }
 
 
-// console.log("loading csv line 29")
-// d3.csv("assets/data/data.csv").then(function(data) {
-//     // Visualize the data
-//     console.log(data);
-
-// });
 
 
 // Retrieve data from the csv file and execute everything below
 
 //console.log("journaldata")
-d3.csv("assets/data/data.csv").then(function(error, journalData){
+d3.csv("assets/data/data.csv").then(function(journalData, error){
     if (error) throw error;
-    console.log(journalData)
+    console.log("journaldata", journalData)
 
     // parse data 
     journalData.forEach(function(data){
@@ -186,7 +183,7 @@ d3.csv("assets/data/data.csv").then(function(error, journalData){
         .attr("y", 0 - margin.left)
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
-        .classed("axis-text", text)
+        .classed("axis-text", true)
         .text("Obese (%)");
 
     // updateToolTip function above csv import
@@ -213,7 +210,7 @@ d3.csv("assets/data/data.csv").then(function(error, journalData){
                 xAxis = renderAxes(xLinearScale, xAxis);
 
                 // updates circles with new x values 
-                circlesGroup = renderCircles(circlesGroup, xLinearScale, chonsenXAxis);
+                circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis);
 
                 //updates tooltips with new info
                 circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
@@ -241,7 +238,10 @@ d3.csv("assets/data/data.csv").then(function(error, journalData){
             }
         });
 
-});
+
+   
+
+}).catch(console.error);
 
 
 
