@@ -52,6 +52,10 @@
   border-radius: 4px;
 }
 
+svg {
+  overflow-x: overlay;
+}
+
 /* Mobile Rules */
 @media screen and (max-width: 530px) {
   .stateText {
