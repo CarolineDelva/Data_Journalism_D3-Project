@@ -11,11 +11,7 @@ I completed this project during my time at the [Columbia Engineering Data Analyt
 
 ## Project Description
 
-The purpose of this project is to analyze the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand your findings. The [data.csv](https://github.com/CarolineDelva/Data_Journalism_D3-Project/tree/master/assets/data)   
-
-
-
-The data set included with the assignment is based on [2014 ACS 1-year estimates] (https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml). The dataset includes data on rates of income, obesity, poverty, etc. by state and MOE (margin of error).
+The purpose of this project is to analyze the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand your findings. The [data.csv](https://github.com/CarolineDelva/Data_Journalism_D3-Project/tree/master/assets/data) is based on [2014 ACS 1-year estimates](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml) and includes data on rates of income, obesity, poverty, etc. by state and MOE (margin of error).
 
 ## Your Task
 
