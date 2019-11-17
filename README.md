@@ -60,7 +60,7 @@ python -m http.server
 ![8-tooltip](Images/8-tooltip.gif)
 
 
-### [Visit Visualization](https://carolinedelva.github.io/Data_Journalism_D3-Project/)
+### [Visit visualization page](https://carolinedelva.github.io/Data_Journalism_D3-Project/)
 
 
 
