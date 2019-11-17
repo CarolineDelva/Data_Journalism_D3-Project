@@ -14,15 +14,17 @@ I completed this project during my time at the [Columbia Engineering Data Analyt
 
 The purpose of this project is to analyze the current trends shaping people's lives and to create charts, graphs, and interactive elements to help readers understand your findings. The [data.csv](https://github.com/CarolineDelva/Data_Journalism_D3-Project/tree/master/assets/data) is based on [2014 ACS 1-year estimates](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml) and includes data on rates of income, obesity, poverty, etc. by state and MOE (margin of error).
 
-The visualization includes the following:
+The interactive scatter plot includes the following features:
 
-- Include state abbreviations in the circles.
+- State abbreviations inside the circles
 
-- Create and situate your axes and labels to the left and bottom of the chart.
+- Axes and labels to the left and bottom of the chart
 
-- Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. Animate the transitions for your circles' locations as well as the range of your axes
+- Multiple labels in scatter plot with click events so that users can decide which data to display 
 
-- Enter tooltips: developers can implement these in their D3 graphics to reveal a specific element's data when the user hovers their cursor over the element. Add tooltips to your circles and display each tooltip with the data that the user has selected. 
+- Animated transitions for circles' locations as well as the range of axes
+
+- Tooltips to your circles and display each tooltip with the data that the user has selected when the user hovers their cursor over circles 
 
 ## Methods Used
 * Data Visualization 
