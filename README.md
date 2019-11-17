@@ -45,24 +45,27 @@ To test graph in terminal, run the following code:
 python -m http.server
 ```
 
-### Visualizations
+## Visualizations
 
+
+
+#### Interactive labels
 
 ![7-animated-scatter](Images/7-animated-scatter.gif)
 
 
-#### 2. Incorporate d3-tip
+#### D3 tooltips
 
 
 ![8-tooltip](Images/8-tooltip.gif)
 
 
-## [Visit Visualization](https://carolinedelva.github.io/Data_Journalism_D3-Project/)
+### [Visit Visualization](https://carolinedelva.github.io/Data_Journalism_D3-Project/)
 
 
 
 
-### Conclusion
+## Conclusion
 
 At a glance, it looks like there is a positive correlation between poverty and obesity, there is no clear correlation between age and obesity and there is a negative correlation between obesity and household income. It looks like there is a positive correlation between poverty and smokes, there is no clear correlation between age an smokes, and there is a negative correlation between smokes and household income. It also looks like there is a positive correlation between lack of healthcare and poverty, there is no clear correlation between lack of healthcare and age, and there is a negative correlation between lack of healthcare and household income.
 
